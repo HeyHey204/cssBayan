@@ -99,3 +99,21 @@ body {
 .item-content img{
 	max-width: 100%;
 }
+
+@media screen and (min-width: 740px) {
+	.accordion-container {
+		min-width: 31.25rem;
+		max-width: 31.25rem;
+		margin: 1rem auto;
+	}
+
+	.page-title {
+		text-align: center;
+		margin-bottom: 1rem;
+		font-size: 2rem;
+	}
+
+	.item-label {
+		font-size: 1rem;
+	}
+}
