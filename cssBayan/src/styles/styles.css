@@ -4,13 +4,22 @@
 	padding: 0;
 }
 
+body {
+	background-color: rgb(252, 243, 255);
+	padding: 0 1rem;
+}
+
 .page-title{
 	text-align: center;
+	margin-bottom: 1rem;
+	font-size: 1.8rem;
+	background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(121, 9, 79, 1) 39%, rgba(0, 212, 255, 1) 100%);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .accordion-container{
-	width: 90%;
-	height: 100vh;
+	max-width: 31.25rem;
 	margin: 1rem auto;
 	font-family: 'Poppins', 'Arial Narrow', Arial, sans-serif;
 }
@@ -20,15 +29,9 @@
 	list-style: none;
 }
 
-@media screen and (min-width: 320px) {
-	body {
-		background-color: rgb(251, 255, 234);
-	}
-}
-
 .accordion-item{
-	padding: 1rem 0;
 	border-bottom: 1px solid rgb(70, 70, 70);
+	overflow: hidden;
 }
 
 .accordion-item:first-child {
@@ -42,11 +45,55 @@
 	pointer-events: none;
 }
 
+.item-label{
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 0;
+	font-weight: bold;
+	font-size: 0.8rem;
+	-webkit-transition: color .35s, padding .35s;
+	-o-transition: color .35s, padding .35s;
+	transition: color .35s, padding .35s;
+}
+
+.accordion-header{
+	display: flex;
+	align-items: center;
+}
+
+.item-icon{
+	background-image: url(../img/arrow.svg);
+	background-repeat: no-repeat;
+	width: 1.3rem;
+	min-width: 1.3rem;
+	height: 1.3rem;
+	min-height: 1.3rem;
+	-webkit-transition: transform .35s, padding .35s;
+	-o-transition: transform .35s, padding .35s;
+	transition: transform .35s, padding .35s;
+}
+
 .item-content{
+	max-height: 0;
+	overflow: hidden;
 	display: flex;
 	justify-content: space-around;
-	margin: 1rem auto;
-	/* width: 90%; */
+	-webkit-transition: max-height .35s, padding .35s;
+	-o-transition: max-height .35s, padding .35s;
+	transition: max-height .35s, padding .35s;
+}
+
+.accordion-item input:checked~.item-content {
+	max-height: 100vh;
+	padding: 1rem 0;
+}
+
+.accordion-item input:checked~.item-label .item-icon {
+	transform: rotate(180deg);
+}
+
+.accordion-item input:checked~.item-label {
+	color: #5800aa;
 }
 
 .item-content img{
